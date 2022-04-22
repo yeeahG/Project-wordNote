@@ -68,6 +68,7 @@ function App() {
 
   const handleSubmit = evt => {
     evt.preventDefault()
+    
     if(input.toLowerCase() === hiragana[current].romanji) {
       setStreak(streak + 1)
       setMaxStreak(Math.max(streak, maxStreak))
@@ -95,8 +96,32 @@ function App() {
   return (
     <div className="App">
       <div>
-        Hello, World!
+        <header className='quiz-container'>
+          <h1 className='quiz'>Hiragana Quiz</h1>
+          <div>
+            <p>
+              { streak } / { maxStreak }
+            </p>
+          </div>
+        </header>
+
+        <div className='quiz-content'>
+          { hiragana[current].hiragana }
+        </div>
+
+        <div>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              value={input}
+              onChange={handleChange}
+              className='submit-btn'
+            />
+          </form>
+        </div>
       </div>
+
+      {error && <p>{error}</p>}
     </div>
   );
 }
