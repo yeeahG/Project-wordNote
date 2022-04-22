@@ -1,23 +1,102 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
+  const hiragana = [
+    { romanji: 'a', hiragana: 'あ'}, 
+    { romanji: 'i', hiragana: 'い'}, 
+    { romanji: 'u', hiragana: 'う'}, 
+    { romanji: 'e', hiragana: 'え'}, 
+    { romanji: 'o', hiragana: 'お'}, 
+    { romanji: 'ka', hiragana: 'か'}, 
+    { romanji: 'ki', hiragana: 'き'}, 
+    { romanji: 'ku', hiragana: 'く'}, 
+    { romanji: 'ke', hiragana: 'け'}, 
+    { romanji: 'ko', hiragana: 'こ'}, 
+    { romanji: 'sa', hiragana: 'さ'}, 
+    { romanji: 'si', hiragana: 'し'}, 
+    { romanji: 'su', hiragana: 'す'}, 
+    { romanji: 'se', hiragana: 'せ'}, 
+    { romanji: 'so', hiragana: 'そ'}, 
+    { romanji: 'ta', hiragana: 'た'}, 
+    { romanji: 'chi', hiragana: 'ち'}, 
+    { romanji: 'tsu', hiragana: 'つ'}, 
+    { romanji: 'te', hiragana: 'て'}, 
+    { romanji: 'to', hiragana: 'と'}, 
+    { romanji: 'na', hiragana: 'な'}, 
+    { romanji: 'ni', hiragana: 'に'}, 
+    { romanji: 'nu', hiragana: 'ぬ'}, 
+    { romanji: 'ne', hiragana: 'ね'}, 
+    { romanji: 'no', hiragana: 'の'}, 
+    { romanji: 'ha', hiragana: 'は'}, 
+    { romanji: 'hi', hiragana: 'ひ'}, 
+    { romanji: 'hu', hiragana: 'ふ'}, 
+    { romanji: 'he', hiragana: 'へ'}, 
+    { romanji: 'ho', hiragana: 'ほ'}, 
+    { romanji: 'ma', hiragana: 'ま'}, 
+    { romanji: 'mi', hiragana: 'み'}, 
+    { romanji: 'mu', hiragana: 'む'}, 
+    { romanji: 'me', hiragana: 'め'}, 
+    { romanji: 'mo', hiragana: 'も'}, 
+    { romanji: 'ya', hiragana: 'や'}, 
+    { romanji: 'yu', hiragana: 'ゆ'}, 
+    { romanji: 'yo', hiragana: 'よ'}, 
+    { romanji: 'ra', hiragana: 'ら'}, 
+    { romanji: 'ri', hiragana: 'り'}, 
+    { romanji: 'ru', hiragana: 'る'}, 
+    { romanji: 're', hiragana: 'れ'}, 
+    { romanji: 'ro', hiragana: 'ろ'}, 
+    { romanji: 'wa', hiragana: 'わ'}, 
+    { romanji: 'wo', hiragana: 'を'}, 
+    { romanji: 'n', hiragana: 'ん'}, 
+  ]
+
+  const [input, setInput] = useState('')
+  const [current, setCurrent] = useState(0)
+  const [streak, setStreak] = useState(0)
+  const [maxStreak, setMaxStreak] = useState(0)
+  const [error, setError] = useState(false)
+
+  const setRandomHiragana = () => {
+    const randomIndex = Math.floor(Math.random() * hiragana.length)
+    setCurrent(randomIndex)
+  }
+
+  const handleChange = evt => {
+    setInput(evt.target.value)
+  }
+
+  const handleSubmit = evt => {
+    evt.preventDefault()
+    if(input.toLowerCase() === hiragana[current].romanji) {
+      setStreak(streak + 1)
+      setMaxStreak(Math.max(streak, maxStreak))
+      setError(false)
+
+      localStorage.setItem('maxStreak', maxStreak)
+      localStorage.setItem('streak', streak)
+    } else {
+      setStreak(0)
+      setError(`wrong! The correct answer is ${hiragana[current].hiragana} is ${hiragana[current].romanji}`)
+      
+      localStorage.setItem('streak', streak)
+    }
+
+    setInput('')
+    setRandomHiragana()
+  }
+
+  useEffect(() => {
+    setRandomHiragana()
+    setStreak(localStorage.getItem('streak') || 0)
+    setMaxStreak(localStorage.getItem('maxStreak') || 0)
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        Hello, World!
+      </div>
     </div>
   );
 }
