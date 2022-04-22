@@ -9,10 +9,8 @@
 
 .answer-content input {
     display: block;
-    width: 6rem;
     font-size: 2rem;
-    background-color: transparent;
+    background-color: cadetblue;
     border-bottom: 2rem black;
     outline: none;
-    text-align: center;
 }

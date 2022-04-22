@@ -1,0 +1,67 @@
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    padding-bottom: 80px;
+    background: linear-gradient(90deg, #fff 60%, #eee 40.1);
+    /*justify-content: space-between;*/
+}
+
+.container .side-bar {
+    width: 400px;
+
+}
+
+.container .side-bar .list {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+}
+
+.container .side-bar .list li {
+    padding: 10px 0;
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;
+    list-style: none;
+}
+
+.container .side-bar .list li::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -5px;
+    width: 105%;
+    height: 3px;
+    background-color: #000;
+    transition: width .2s linear .2s;
+}
+
+.container .side-bar .list li.active, 
+.container .side-bar .list li:hover {
+    font-size: 30px;
+}
+
+.container .side-bar .list li.active::before, 
+.container .side-bar .list li:hover::before {
+    right: -5px;
+    width: 105%;
+}
+
+.container .jp-container {
+    flex: 1;
+    width: 100%;
+    object-fit: cover;
+}
