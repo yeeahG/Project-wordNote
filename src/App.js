@@ -68,14 +68,14 @@ function App() {
 
   const handleSubmit = evt => {
     evt.preventDefault()
-    
+
     if(input.toLowerCase() === hiragana[current].romanji) {
-      setStreak(streak + 1)
-      setMaxStreak(Math.max(streak, maxStreak))
+      setStreak(streak+1)
+      setMaxStreak(Math.max(streak+1, maxStreak))
       setError(false)
 
       localStorage.setItem('maxStreak', maxStreak)
-      localStorage.setItem('streak', streak)
+      localStorage.setItem('streak', streak+1)
     } else {
       setStreak(0)
       setError(`wrong! The correct answer is ${hiragana[current].hiragana} is ${hiragana[current].romanji}`)
@@ -89,8 +89,8 @@ function App() {
 
   useEffect(() => {
     setRandomHiragana()
-    setStreak(localStorage.getItem('streak') || 0)
-    setMaxStreak(localStorage.getItem('maxStreak') || 0)
+    setStreak(parseInt(localStorage.getItem('streak')) || 0)
+    setMaxStreak(parseInt(localStorage.getItem('maxStreak')) || 0)
   }, [])
 
   return (
