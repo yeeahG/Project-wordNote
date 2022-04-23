@@ -8,13 +8,24 @@
     transition: all .2s linear;
 }
 
-#menu-btn {
+.menu-hamburger {
     position: fixed;
     top: 20px; left: 30px;
     font-size: 20px;
     cursor: pointer;
     z-index: 1000;
 }
+
+/* @media (max-width: 767px) {
+
+    .menu-hamburger {
+    position: fixed;
+    top: 20px; left: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1000;
+    }
+} */
 
 .container {
     display: flex;
@@ -74,3 +85,25 @@
     object-fit: cover;
 }
 */
+
+.container-hide {
+    display: none;
+    width: 100%;
+}
+
+
+/* .show-menu{
+    width: 376px;
+    height: 500px;
+    position: absolute;
+    left: 0px;
+    transition: 1s;
+}
+
+.hide-menu{
+    width: 376px;
+    height: 500px;
+    position: absolute;
+    left: -376px;
+    transition: 1s;
+} */

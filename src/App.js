@@ -11,6 +11,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <List />
+        
         <Routes>
            {/* <Route path='/quiz/:id' element={<List/>}></Route>*/}
             <Route path="/" element={<Home/>}> </Route> 
