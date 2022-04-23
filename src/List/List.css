@@ -42,15 +42,16 @@
     top: 50%;
     transform: translateY(-50%);
     left: -5px;
-    width: 105%;
+    width: 0%;
     height: 3px;
-    background-color: #000;
     transition: width .2s linear .2s;
+    background-color: #000;
 }
 
 .container .side-bar .list li.active, 
 .container .side-bar .list li:hover {
     font-size: 30px;
+    
 }
 
 .container .side-bar .list li.active::before, 

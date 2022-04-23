@@ -1,0 +1,20 @@
+.home-image {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 60%;
+    position: absolute;
+    right: 0;
+    padding: 20vh 0;
+    /*background-color: #7b9acc ;*/
+    background: url("../Home/home2.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.home-image img {  
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 2px solid #000;
+}

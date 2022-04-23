@@ -1,11 +1,10 @@
 import React from 'react'
+import './Home.css'
 
 const Home = () => {
   return (
-    <div>
-        <div className='hiragana'>
-          <img src={'images/home.png'} />
-        </div>
+    <div className='home-image'>
+        <img src={'images/home.png'} />
     </div>
   )
 }

@@ -9,7 +9,7 @@ const List = () => {
       <div className='side-bar'>
         <ul className='list'>
 
-          <li className='active'> <a href="/">Home</a> </li>
+          <li className='active'> <a href="/">🏠Home</a> </li>
           <li> <a href="/Hiragana">Hiragana</a> </li>
           <li> <a href="/Katakana">Katakana</a> </li> 
         
@@ -18,9 +18,7 @@ const List = () => {
 
       {/*
       <div className='jp-container'> 
-        <div className='hiragana'>
-          <Hiragana />
-        </div>
+        <div className='hiragana'> <Hiragana /> </div>
       </div>*/}
 
     </div>

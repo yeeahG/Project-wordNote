@@ -5,23 +5,44 @@
     width: 60%;
     position: absolute;
     right: 0;
-    padding: 40vh 0;
+    padding: 32.7vh 0;
+    background-color: #2BAE66 ;
+   /*background-color: #7b9acc ;
+    background-color: #fffcbb ;
+    background-color: #f4da01 ;*/
 }
 
- .content .quiz-content {
+.content .quiz-content {
     font-size: 5rem;
-    width: auto;
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+.content .quiz-container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
 }
 
 .content .answer-content {
     /* font-size: 8rem; */
     line-height: 1;
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+.answer-content form {
+    padding-bottom: 10px;
 }
 
 .answer-content input {
     /* display: block; */
     font-size: 2rem;
-    background-color: cadetblue;
-    border-bottom: 1rem black;
+    border-bottom: 2px solid black;
     outline: none;
+    width: 20%;
+    margin: 0 auto;
+    background-color: #fff;
 }
