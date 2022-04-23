@@ -1,46 +1,27 @@
 import React from 'react'
 import Hiragana from '../components/Hiragana';
-import Katakana from '../components/Katakana';
 import './List.css'
-import JpRows from '../components/Rows/JpRows';
 
 const List = () => {
 
   return (
     <div className='container'>
-        <div className='side-bar'>
-            <ul className='list'>
+      <div className='side-bar'>
+        <ul className='list'>
 
-              <li className='active'>
-                <a href="/Hiragana">
-                  Hiragana
-                </a>
-              </li>
-              <li>
-                <a href="/Katakana">
-                  Katakana
-                </a>
-                
-              </li> 
+          <li className='active'> <a href="/">Home</a> </li>
+          <li> <a href="/Hiragana">Hiragana</a> </li>
+          <li> <a href="/Katakana">Katakana</a> </li> 
+        
+        </ul>
+      </div>
 
-              {/*
-              <li className='active'>
-                <a href='/Hiragana'>Hiragana</a>
-              </li> */}
-
-
-
-            </ul>
+      {/*
+      <div className='jp-container'> 
+        <div className='hiragana'>
+          <Hiragana />
         </div>
-
-
-         {/*<div className='jp-container'>
-          <div className='hiragana'>
-            <Hiragana />
-           <JpRows />
-          </div>
-
-        </div>*/}
+      </div>*/}
 
     </div>
   )

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './Hiragana.css'
+import './Rows.css'
 
 const Hiragana = () => {
-    const hiragana = [
+  const hiragana = [
         { romanji: 'a', hiragana: 'あ'}, 
         { romanji: 'i', hiragana: 'い'}, 
         { romanji: 'u', hiragana: 'う'}, 
@@ -49,80 +49,77 @@ const Hiragana = () => {
         { romanji: 'wa', hiragana: 'わ'}, 
         { romanji: 'wo', hiragana: 'を'}, 
         { romanji: 'n', hiragana: 'ん'}, 
-    ]
+  ]
     
-    const [input, setInput] = useState('')
-    const [current, setCurrent] = useState(0)
-    const [streak, setStreak] = useState(0)
-    const [maxStreak, setMaxStreak] = useState(0)
-    const [error, setError] = useState(false)
+  const [input, setInput] = useState('')
+  const [current, setCurrent] = useState(0)
+  const [streak, setStreak] = useState(0)
+  const [maxStreak, setMaxStreak] = useState(0)
+  const [error, setError] = useState(false)
     
-    const setRandomHiragana = () => {
-        const randomIndex = Math.floor(Math.random() * hiragana.length)
-        setCurrent(randomIndex)
+  const setRandomHiragana = () => {
+    const randomIndex = Math.floor(Math.random() * hiragana.length)
+    setCurrent(randomIndex)
+  }
+    
+   const handleChange = evt => {
+    setInput(evt.target.value)
+  }
+    
+  const handleSubmit = evt => {
+    evt.preventDefault()
+  
+    if(input.toLowerCase() === hiragana[current].romanji) {
+      setStreak(streak+1)
+      setMaxStreak(Math.max(streak+1, maxStreak))
+     setError(false)
+    
+      localStorage.setItem('maxStreak', maxStreak)
+      localStorage.setItem('streak', streak+1)
+    } else {
+      setStreak(0)
+      setError(`wrong! The correct answer is ${hiragana[current].hiragana} is ${hiragana[current].romanji}`)
+        
+      localStorage.setItem('streak', streak)
     }
     
-    const handleChange = evt => {
-        setInput(evt.target.value)
-    }
+    setInput('')
+    setRandomHiragana()
+  }
     
-    const handleSubmit = evt => {
-        evt.preventDefault()
+  useEffect(() => {
+    setRandomHiragana()
+   setStreak(parseInt(localStorage.getItem('streak')) || 0)
+    setMaxStreak(parseInt(localStorage.getItem('maxStreak')) || 0)
+  }, [])
     
-        if(input.toLowerCase() === hiragana[current].romanji) {
-          setStreak(streak+1)
-          setMaxStreak(Math.max(streak+1, maxStreak))
-          setError(false)
-    
-          localStorage.setItem('maxStreak', maxStreak)
-          localStorage.setItem('streak', streak+1)
-        } else {
-          setStreak(0)
-          setError(`wrong! The correct answer is ${hiragana[current].hiragana} is ${hiragana[current].romanji}`)
-          
-          localStorage.setItem('streak', streak)
-        }
-    
-        setInput('')
-        setRandomHiragana()
-    }
-    
-    useEffect(() => {
-        setRandomHiragana()
-        setStreak(parseInt(localStorage.getItem('streak')) || 0)
-        setMaxStreak(parseInt(localStorage.getItem('maxStreak')) || 0)
-    }, [])
-    
-    return (
-        <div className="content">
-            <header className='quiz-container'>
-              <h1 className='quiz'>Hiragana Quiz</h1>
-              <div>
-                <p>
-                  { streak } / { maxStreak }
-                </p>
-              </div>
-            </header>
-    
-            <div className='quiz-content'>
-              { hiragana[current].hiragana }
-            </div>
-    
-            <div className='answer-content'>
-              <form onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  value={input}
-                  onChange={handleChange}
-                  className='submit-btn'
-                />
-              </form>
-            </div>
-
-        {error && <p>{error}</p>}
+  return (
+    <div className="content">
+      <header className='quiz-container'>
+        <h1 className='quiz'>Hiragana Quiz</h1>
+        <div>
+          <p> { streak } / { maxStreak } </p>
         </div>
-    );
-}
+      </header>
     
+      <div className='quiz-content'>
+        { hiragana[current].hiragana }
+      </div>
+    
+      <div className='answer-content'>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={input}
+            onChange={handleChange}
+            className='submit-btn'
+          />
+        </form>
+      </div>
+
+      {error && <p>{error}</p>}
+    </div>
+  );
+}
 
 export default Hiragana
