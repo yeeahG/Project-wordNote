@@ -3,17 +3,20 @@ import List from './List/List'
 import Hiragana from './components/Hiragana';
 import Katakana from './components/Katakana'
 import './App.css';
+import Home from './Home/Home';
 
 function App() {
 
   return (
     <div className="App">
       <BrowserRouter>
-        <List />
+
+      <List />
 
         <Routes>
            {/* <Route path='/quiz/:id' element={<List/>}></Route>
             <Route path='/' element={<List/>}></Route>*/}
+            <Route path="/" element={<Home/>}> </Route> 
             <Route path='/Hiragana' element={<Hiragana/>}></Route>
             <Route path='/Katakana' element={<Katakana/>}></Route>
         </Routes>
