@@ -8,6 +8,14 @@
     transition: all .2s linear;
 }
 
+#menu-btn {
+    position: fixed;
+    top: 20px; left: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
 .container {
     display: flex;
     align-items: center;
@@ -51,7 +59,6 @@
 .container .side-bar .list li.active, 
 .container .side-bar .list li:hover {
     font-size: 30px;
-    
 }
 
 .container .side-bar .list li.active::before, 
@@ -60,8 +67,10 @@
     width: 105%;
 }
 
+/*
 .container .jp-container {
     flex: 1;
     width: 100%;
     object-fit: cover;
 }
+*/

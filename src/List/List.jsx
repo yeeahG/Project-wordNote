@@ -5,23 +5,29 @@ import './List.css'
 const List = () => {
 
   return (
-    <div className='container'>
-      <div className='side-bar'>
-        <ul className='list'>
-
-          <li className='active'> <a href="/">🏠Home</a> </li>
-          <li> <a href="/Hiragana">Hiragana</a> </li>
-          <li> <a href="/Katakana">Katakana</a> </li> 
-        
-        </ul>
+    <>
+      <div id='menu-btn'>
+        menu
       </div>
 
-      {/*
-      <div className='jp-container'> 
-        <div className='hiragana'> <Hiragana /> </div>
-      </div>*/}
+      <div className='container'>
+        <div className='side-bar'>
+          <ul className='list'>
 
-    </div>
+            <li> <a href="/">🏠Home</a> </li>
+            <li> <a href="/Hiragana">Hiragana</a> </li>
+            <li> <a href="/Katakana">Katakana</a> </li> 
+          
+          </ul>
+        </div>
+
+        {/*
+        <div className='jp-container'> 
+          <div className='hiragana'> <Hiragana /> </div>
+        </div>*/}
+
+      </div>
+    </>
   )
 }
 
